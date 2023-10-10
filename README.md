@@ -1,3 +1,7 @@
+# lanka-accom
+
+An accommodation finder which helps you to find the place to stay in Sri Lanka
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
