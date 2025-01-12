@@ -7,16 +7,16 @@ import { updateAccommodations } from './actions/actions';
 import { useDispatch } from 'react-redux';
 import useWindowSize from './../utils/useWindowSize';
 
-const toSingular = {
-  'Guest Houses': 'Guest House',
-  'Home Stay Units': 'Home Stay Unit',
-  'Hotels': 'Hotel',
-  'Bungalows': 'Bungalow',
-  'Rented Apartments': 'Rented Apartment',
-  'Rented Homes': 'Rented Home',
-  'Heritage Bungalows': 'Heritage Bungalow',
-  'Heritage Homes': 'Heritage Home',
-};
+// const toSingular = {
+//   'Guest Houses': 'Guest House',
+//   'Home Stay Units': 'Home Stay Unit',
+//   'Hotels': 'Hotel',
+//   'Bungalows': 'Bungalow',
+//   'Rented Apartments': 'Rented Apartment',
+//   'Rented Homes': 'Rented Home',
+//   'Heritage Bungalows': 'Heritage Bungalow',
+//   'Heritage Homes': 'Heritage Home',
+// };
 
 export default function LeafletMap({ accommodations, location, radius }) {
   const dispatch = useDispatch();
@@ -118,7 +118,9 @@ export default function LeafletMap({ accommodations, location, radius }) {
     }
   };
 
-  dispatch(updateAccommodations(nearbyAccommodations));
+  useEffect(() =>{
+    dispatch(updateAccommodations(nearbyAccommodations));
+  })
 
   return (
     <MapContainer center={location ? [location.lat, location.lng] : [7.8731, 80.7718]} zoom={location ? 13 : 8} style={{ height: "100%", minHeight: "100%" }} attributionControl={false}>

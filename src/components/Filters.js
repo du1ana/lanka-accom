@@ -86,6 +86,7 @@ const Filters = ({ onLocationUpdate, onRadiusUpdate, radius }) => {
     } catch (error) {
       setErrorTitle('Yikes.');
       setErrorBody('Failed to fetch the address. Please try again.');
+      console.log(error);
       setDisableSearch(false);
       setCurrSearch('');
     }
@@ -101,7 +102,7 @@ const Filters = ({ onLocationUpdate, onRadiusUpdate, radius }) => {
               onChange={handleAddressChange}
               className={errorTitle ? "py-3 px-4 block w-full text-red-900 bg-transparent appearance-none dark:text-red-400 dark:border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer" :
                 "py-3 px-4 block w-full bg-transparent appearance-none dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 peer"} placeholder=" " />
-            <label for="address_input" className={errorTitle ? "absolute text-sm text-red-900 dark:text-red-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-red-600 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto" :
+            <label htmlFor="address_input" className={errorTitle ? "absolute text-sm text-red-900 dark:text-red-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-red-600 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto" :
               "absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-indigo-600 peer-focus:dark:text-indigo-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
             }
             > Enter an address</label>
@@ -134,7 +135,7 @@ const Filters = ({ onLocationUpdate, onRadiusUpdate, radius }) => {
 
         <div className="error-message-section">
           <div>
-            {location && nearbyAccommodations?.nearbyAccommodations?.length == 0 && (<div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            {location && nearbyAccommodations?.nearbyAccommodations?.length == 0 && (<div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
               <b>Uh-oh!</b> <br />No accommodations nearby. <br />Try increasing the search radius or changing the address.
             </div>)}
             {errorTitle && (<div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">

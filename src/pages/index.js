@@ -7,7 +7,7 @@ import accommodationsData from './../../data.json';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import Title from '../components/icons/Title';
 export default function Home() {
-  const [setFilters] = useState({});
+  //const [filters, setFilters] = useState({});
   const [location, setLocation] = useState(null);
   const [radius, setRadius] = useState(1000);
   const [sortedAccommodations, setSortedAccommodations] = useState(null);
@@ -15,9 +15,9 @@ export default function Home() {
 
   const maxMinRadius = 30000;
 
-  const handleFilterChange = (key, value) => {
-    setFilters((prev) => ({ ...prev, [key]: value }));
-  };
+  // const handleFilterChange = (key, value) => {
+  //   setFilters((prev) => ({ ...prev, [key]: value }));
+  // };
 
   const handleLocationUpdate = (newLocation) => {
     setLocation(newLocation);
@@ -105,7 +105,7 @@ export default function Home() {
             </button>
 
           </div>
-          <Filters onFilterChange={handleFilterChange} onLocationUpdate={handleLocationUpdate} onRadiusUpdate={handleRadiusUpdate} radius={radius} />
+          <Filters onLocationUpdate={handleLocationUpdate} onRadiusUpdate={handleRadiusUpdate} radius={radius} />
 
         </div>
         <div className="map-container">
