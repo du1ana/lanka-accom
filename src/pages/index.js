@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from '../store/store';
 import Map from '../components/Map';
 import Filters from '../components/Filters';
 import accommodationsData from './../../data.json';
