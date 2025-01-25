@@ -32,7 +32,11 @@ export default function Home() {
     setSortedAccommodations(sortedAccommodationsTemp);
 
     if (radius < minRadius) {
-      minRadius + 100 < maxMinRadius ? setRadius(minRadius + 100) : setRadius(maxMinRadius);
+      if (minRadius + 100 < maxMinRadius) {
+        setRadius(minRadius + 100);
+      } else {
+        setRadius(maxMinRadius);
+      }
     }
   };
 

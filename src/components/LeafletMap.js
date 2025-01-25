@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import typeToIcon from '../utils/typeToIcon';
 import { updateAccommodations } from './actions/actions';
 import { useDispatch } from 'react-redux';
-import takeWindowSize from './../utils/takeWindowSize';
+import useWindowSize from './../utils/takeWindowSize';
 
 // const toSingular = {
 //   'Guest Houses': 'Guest House',
@@ -21,6 +21,7 @@ import takeWindowSize from './../utils/takeWindowSize';
 export default function LeafletMap({ accommodations, location, radius }) {
   const dispatch = useDispatch();
   const typeFilter = useSelector(state => state.typeFilter.typeFilter);
+  const windowSize = useWindowSize();
 
   const getZoomLevel = (radius) => {
     const maxRadius = 11750;
@@ -28,7 +29,7 @@ export default function LeafletMap({ accommodations, location, radius }) {
     let maxZoom = 15;
     let minZoom = 11;
 
-    let windowSize = takeWindowSize();
+
     let isPortrait = windowSize.width <= windowSize.height;
     if (isPortrait) {
       maxZoom -= 1;
