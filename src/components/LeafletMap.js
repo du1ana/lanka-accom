@@ -169,7 +169,7 @@ export default function LeafletMap({ accommodations, location, radius }) {
             <h5 className="pt-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{getTitleCase(accom.Name)}</h5>
             <p className="popup-content-address font-normal text-gray-700 dark:text-gray-400">{getTitleCase(accom.Address)}</p>
             <p className="popup-content font-normal text-gray-700 dark:text-gray-400">Rooms: {accom.Rooms}</p>
-            <p className="popup-content font-normal text-gray-700 dark:text-gray-400">Grade: <span className={getBadgeClass(accom.Grade)+" px-1 rounded"}> <b>{accom.Grade}</b></span></p>
+            <p className="popup-content font-normal text-gray-700 dark:text-gray-400">Grade: <span className={getBadgeClass(accom.Grade)+" px-1 rounded font-thin"}> <b>{accom.Grade}</b></span></p>
           </Popup>
         </Marker>
       ))}
